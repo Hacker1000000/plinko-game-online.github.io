@@ -1,11 +1,9 @@
-import adapter from '@sveltejs/adapter-vercel';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import vercel from '@sveltejs/adapter-vercel';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
-const config = {
+export default {
+  preprocess: vitePreprocess(),
   kit: {
-    adapter: adapter(), // THIS REPLACES STATIC ADAPTER
-  },
-  preprocess: vitePreprocess()
+    adapter: vercel()
+  }
 };
-
-export default config;
